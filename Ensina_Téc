@@ -1,1 +1,92 @@
-a
+
+# anotação: Laço principal que mantém o programa rodando até que o usuário decida sair
+while True:
+    # anotação: Etapa 1 - Boas-vindas e coleta do nome do usuário
+    print("\033[91mEtapa 1- Boas vindas ✓\033[0m")
+    nome = input("Digite seu nome: ").lower().strip()
+    print(f"Bem-vindo ao Ensina Téc {nome}!")
+
+    # anotação: Coleta da idade do usuário
+    idade = int(input("Digite sua idade: "))
+
+    # anotação: Etapa 2 - Consentimento do usuário para uso de dados
+    print("\033[91m\n\nEtapa 2- Concentimento ✓\033[0m")
+    consentimento = input(
+        "Você concorda com uso dos seus dados para\nanálises estatísticas? \033[91m(sim/não):\033[0m ").lower().strip()
+
+    if consentimento == "sim":
+        # anotação: Caso o usuário consinta, o programa continua
+        print("Obrigado pelo consentimento. Vamos para\na próxima etapa!\n\n")
+    else:
+        # anotação: Se o usuário não consentir, volta para o começo
+        print("Você precisa consentir para continuar. Voltando ao início...\n\n")
+        continue
+
+    # anotação: Laço para garantir que o usuário digite corretamente para prosseguir
+    while True:
+        # anotação: Etapa 3 - Explicação sobre o que é TI
+        print("\033[91mEtapa 3- Oque é TI ✓\033[0m")
+        print(
+            """Nessa etapa será explicado o que é \033[91mTecnologia da Informação\033[0m, \nou TI,que nada mais é do que um conjunto de ferramentas, sistemas e \nconhecimentos usados para criar, armazenar, processar e compartilhar informações \npor meio de computadores e outros dispositivos eletrônicos.Em outras \npalavras, TI é tudo aquilo que envolve o uso da tecnologia para lidar com informações.""")
+        print('Digite o comando: \033[91m"next"\033[0m para continuar.\n')
+
+        # anotação: Solicita o comando "next" para seguir
+        comando_A = input("Continuar ?: ").lower().strip()
+        if comando_A == "next":
+            print("Seguindo para próxima etapa!")
+            break
+        else:
+            # anotação: Se não digitar "next", repete o processo
+            print("Comando inválido. Repetindo o processo\n\n")
+
+    # anotação: Laço para a escolha da forma de representação de algoritmos
+    while True:
+        # anotação: Etapa 4 - Escolha entre Pseudocódigo ou Fluxograma
+        print("\n\n\033[91mEtapa 4- Representação de algoritmos ✓\033[0m")
+        print("Escolha uma forma de representação de algoritmos")
+        print("\033[91m333\033[0m - Pseudocódigo")
+        print("\033[91m666\033[0m - Fluxograma")
+
+        # anotação: Solicita a escolha numérica
+        escolha_nmr = int(input("Digite o número de sua escolha: "))
+        print("\n")
+
+        if escolha_nmr == 333:
+            # anotação: Se o usuário escolher 333, mostra a explicação de Pseudocódigo
+            print("Você escolheu: \033[91mPseudocódigo\033[0m")
+            print(
+                "Pseudocódigo é uma forma de escrever algoritmos de maneira simples \ne estruturada, usando linguagem "
+                "próxima da programação, mas sem seguir \nregras concretas. Ele ajuda a entender e planejar a lógica antes de programar.\n")
+        elif escolha_nmr == 666:
+            # anotação: Se o usuário escolher 666, mostra a explicação de Fluxograma
+            print("Você escolheu: \033[91mFluxograma\033[0m")
+            print(
+                "Fluxograma nada mais é que um desenho que nos mostra as etapas lógicas \nde um código, de forma clara "
+                "e organizada facilitando a compreensão. \nSão usadas formas geométricas,para representar as ações, decisões e a ordem.\n")
+        else:
+            # anotação: Se o número não for válido, repete o processo de escolha
+            print("Número inválido, escolha novamente\n")
+            continue
+
+        # anotação: Após a explicação, pergunta o que fazer a seguir
+        escolha_oquefazer = input(
+            "Digite '\033[91mcontinuar\033[0m' para seguir para a próxima etapa ou \033[91m'repetir\033[0m' para escolher novamente:  ").lower().strip()
+
+        if escolha_oquefazer == "continuar":
+            # anotação: Se escolher continuar, segue para a Etapa 5
+            print("\n\033[91mEtapa 5- Deseja sair do sistema? ✓\033[0m ")
+            sair_sis = input("Você quer sair do sistema? \033[91m(sim/não)\033[0m: ").lower().strip()
+            if sair_sis == "sim":
+                # anotação: Se decidir sair, volta ao início do programa
+                print("Voltando à Etapa 1...\n")
+                break  # Sai do laço atual e volta para o laço principal
+            else:
+                # anotação: Se não quiser sair, volta para a escolha da representação
+                print("Voltando à Etapa 4...\n")
+                continue
+        elif escolha_oquefazer == "repetir":
+            # anotação: Se escolher repetir, volta para a escolha de representação
+            print("Voltando à escolha de opções\n")
+        else:
+            # anotação: Se o comando for inválido, volta para a escolha também
+            print("Comando inválido. Voltando à escolha de opções\n")
